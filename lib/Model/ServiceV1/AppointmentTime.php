@@ -187,18 +187,14 @@ class AppointmentTime extends BaseModel implements ModelInterface, ArrayAccess, 
     /**
      * Sets duration_in_minutes
      *
-     * @param int $duration_in_minutes The duration of the appointment window, in minutes.
+     * @param int|string $duration_in_minutes The duration of the appointment window, in minutes.
      *
      * @return self
      */
     public function setDurationInMinutes($duration_in_minutes)
     {
 
-        if (($duration_in_minutes < 1)) {
-            throw new \InvalidArgumentException('invalid value for $duration_in_minutes when calling AppointmentTime., must be bigger than or equal to 1.');
-        }
-
-        $this->container['duration_in_minutes'] = $duration_in_minutes;
+        $this->container['duration_in_minutes'] = (int)$duration_in_minutes;
 
         return $this;
     }
