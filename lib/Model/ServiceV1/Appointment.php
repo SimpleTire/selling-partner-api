@@ -206,7 +206,7 @@ class Appointment extends BaseModel implements ModelInterface, ArrayAccess, \Jso
         }
 
         if (!is_null($this->container['assigned_technicians']) && (count($this->container['assigned_technicians']) < 1)) {
-            $invalidProperties[] = "invalid value for 'assigned_technicians', number of items must be greater than or equal to 1.";
+            $this->container['assigned_technicians'] = null;
         }
 
         if (!is_null($this->container['rescheduled_appointment_id']) && (mb_strlen($this->container['rescheduled_appointment_id']) > 100)) {
