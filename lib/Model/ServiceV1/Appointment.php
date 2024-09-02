@@ -329,7 +329,7 @@ class Appointment extends BaseModel implements ModelInterface, ArrayAccess, \Jso
 
 
         if (!is_null($assigned_technicians) && (count($assigned_technicians) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $assigned_technicians when calling Appointment., number of items must be greater than or equal to 1.');
+            $assigned_technicians =null;
         }
         $this->container['assigned_technicians'] = $assigned_technicians;
 
